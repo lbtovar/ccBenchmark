@@ -1,4 +1,5 @@
 from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Benchmark(models.Model):
@@ -25,16 +26,21 @@ class Benchmark(models.Model):
         ordering = ('name',)
 
 
-class Section(models.Model):
+class Section(MPTTModel):
     benchmark = models.ForeignKey(Benchmark, on_delete=models.PROTECT)
-    sect_id = models.IntegerField()
-    title = models.CharField(max_length=200, null=True, blank=True)
+    sect_id = models.CharField(max_length=10, null=True, blank=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    section = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True)
 
     def __str__(self):
-        return str(self.sect_id) + " " + self.title
+        return str(self.sect_id) + "  " + str(self.name)
 
     class Meta:
         ordering = ('sect_id',)
+
+    class MPTTMeta:
+        order_insertion_by = ['sect_id']
+        parent_attr = 'section'
 
 
 class Control(models.Model):

@@ -5,3 +5,6 @@ Django==1.10
 
 ## mysqlclient: Python interface to MySQL.
 mysqlclient==1.3.7
+
+## django-mptt: Utilities for implementing a modified pre-order traversal tree in Django.
+django-mptt==0.8.6

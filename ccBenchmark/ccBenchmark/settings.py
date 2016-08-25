@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'ccBenchmark.wsgi.application'
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
+#    }
 # }
 
 # Database
@@ -89,8 +90,8 @@ DATABASES = {
         'NAME': 'benchmark',
         'USER': 'benchmark-user',
         'PASSWORD': 'jrg123098',
-        # 'HOST': 'localhost',
-        # 'PORT': '3306',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
