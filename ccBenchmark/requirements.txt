@@ -1,0 +1,7 @@
+
+
+## Django: Web application framework.
+Django==1.10
+
+## mysqlclient: Python interface to MySQL.
+mysqlclient==1.3.7
