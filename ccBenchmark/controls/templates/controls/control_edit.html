@@ -1,0 +1,7 @@
+{% extends 'controls/base.html' %}
+{% block content %}
+    <form method="POST" class="control-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'controls/base.html' %}
+{% block title %}Detail{% endblock %}
+{% block content %}
+    <div class="control">
+        <a class="btn btn-default" href="{% url 'control_edit' pk=control.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h4>{{ control.title }}</h4>
+        <p>{{ control.description|linebreaksbr }}</p>
+    </div>
+{% endblock %}

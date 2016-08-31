@@ -1,0 +1,13 @@
+{% extends 'controls/base.html' %}
+{% block title %}Summary{% endblock %}
+{% block content %}
+    <a href="{% url 'control_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% for control in controls %}
+        <div class="control">
+            <h4><a href="{% url 'control_detail' pk=control.id %}">{{ control.doc_id }}  -  {{ control.title }}</a></h4>
+            <p>{{ control.description|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
