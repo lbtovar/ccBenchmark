@@ -19,7 +19,7 @@ from controls import views
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='admin'),
     url(r'', include('controls.urls')),
     url(r'^control/(?P<pk>\d+)/$', views.control_detail, name='control_detail'),
     url(r'^control/(?P<pk>\d+)/edit/$', views.control_edit, name='control_edit'),

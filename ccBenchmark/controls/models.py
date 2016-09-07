@@ -30,6 +30,7 @@ class Section(MPTTModel):
     benchmark = models.ForeignKey(Benchmark, on_delete=models.PROTECT)
     sect_id = models.CharField(max_length=10, null=True, blank=True)
     name = models.CharField(max_length=200, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     section = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True)
 
     def __str__(self):
@@ -96,6 +97,7 @@ class Remediation(models.Model):
     control = models.ForeignKey(Control, on_delete=models.CASCADE, related_name="remediation_control")
     status = models.CharField(max_length=20, choices=STATUS, null=False, blank=False)
     action = models.TextField(null=True, blank=True)
+    comment = models.TextField(null=True, blank=True)
     who = models.CharField(max_length=50, null=True, blank=True)
     remediation_date = models.DateField('remediation date', null=True, blank=True)
 

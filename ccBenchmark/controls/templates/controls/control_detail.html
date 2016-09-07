@@ -1,9 +1,24 @@
 {% extends 'controls/base.html' %}
 {% block title %}Detail{% endblock %}
 {% block content %}
+    <a class="btn btn-default" href="{% url 'control_list' %}"><span class="glyphicon glyphicon-home"></span></a>
     <div class="control">
-        <a class="btn btn-default" href="{% url 'control_edit' pk=control.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <h4>{{ control.title }}</h4>
+        <h3>{{ control.doc_id }} {{ control.title }} {{ control.scored|yesno:"(Scored),(Not Scored)" }}
+            <a class="btn btn-default" href="{% url 'control_edit' pk=control.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h3>
         <p>{{ control.description|linebreaksbr }}</p>
+        <b>Rationale:</b>
+        <p>{{ control.rationale|linebreaksbr }}</p>
+        <b>Audit:</b>
+        <p>{{ control.audit|linebreaksbr }}</p>
+        <b>Commands:</b>
+        <p>{{ control.commands|linebreaksbr }}</p>
+        <b>Remediation:</b>
+        <p>{{ control.remediation|linebreaksbr }}</p>
+        <b>Impact:</b>
+        <p>{{ control.impact|linebreaksbr }}</p>
+        <b>Default:</b>
+        <p>{{ control.default|linebreaksbr }}</p>
+        <b>References:</b>
+        <p>{{ control.references|linebreaksbr }}</p>
     </div>
 {% endblock %}
